@@ -1,4 +1,3 @@
-import { isDisabled } from "@testing-library/user-event/dist/utils";
 import { useState } from "react";
 
 interface PostProps {
@@ -11,13 +10,23 @@ interface PostProps {
 
 export function Post(props: PostProps){
 
-    const [amount, setAmount] = useState(0)
+    const [amountLike, setLikeAmount] = useState(0)
     const [isLiked, setIsLiked] = useState(false);
+
+    const [amountDisLike, setDisAmount] = useState(0)
+    const [isDisLiked, setIsDisLiked] = useState(false);
 
     function Like() {
         if (!isLiked) {
-            setAmount(amount + 1);
+            setLikeAmount(amountLike + 1);
             setIsLiked(true);
+        }
+    }
+
+    function disLike() {
+        if (!isDisLiked) {
+            setDisAmount(amountDisLike + 1);
+            setIsDisLiked(true);
         }
     }
 
@@ -27,8 +36,10 @@ export function Post(props: PostProps){
             <p>{props.description}</p>
             <img width={300} height={300} src={props.image} alt="imagePost" />
             <p>{props.author}</p>
-            <p>{amount}</p>
+            <p>Like: {amountLike}</p>
             <button onClick={Like}>Like</button>
+            <p>Dislike: {amountDisLike}</p>
+            <button onClick={disLike}>Dislike</button>
         </div>
     )
 }
