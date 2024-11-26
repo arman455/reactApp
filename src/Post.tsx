@@ -36,10 +36,13 @@ export function Post(props: PostProps){
             <p>{props.description}</p>
             <img width={300} height={300} src={props.image} alt="imagePost" />
             <p>{props.author}</p>
+
             <p>Like: {amountLike}</p>
-            <button onClick={Like}>Like</button>
+            <button onClick={Like} disabled={isLiked}>Like</button>
+
             <p>Dislike: {amountDisLike}</p>
-            <button onClick={disLike}>Dislike</button>
+            <button onClick={disLike} disabled={isDisLiked}>Dislike</button>
+
         </div>
     )
 }
