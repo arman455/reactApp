@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Kumar+One&display=swap');
+
+.mainpostlistdiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0px;
+    gap: 20px;
+
+}
+
+.list{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background-color: transparent;
+}
+
+#mainselect{
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    font-family: "Bitter", serif;
+    font-weight: bold;
+    text-align: center;
+
+}

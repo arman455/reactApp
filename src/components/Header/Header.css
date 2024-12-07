@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Kumar+One&display=swap');
+
+.header{
+    min-width: 1169px;
+    width: 1169px;
+    max-height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #99989A;
+    border-radius: 20px;
+    padding: 10px;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.postfun{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.stariyIMG{
+    width: 130px;
+    height: 92px;
+}
+
+.font{
+    font-size: 40px;
+    font-family: "Kumar One", serif;
+    font-style: normal;
+    color: #1A191A;
+    text-decoration: none;
+}
+
+#othertext{
+    padding-top: 20px;
+}

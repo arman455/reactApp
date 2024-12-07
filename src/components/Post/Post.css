@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Kumar+One&display=swap');
+
+.postdiv{
+    width: 356px;
+    height: 327px;
+    background-color: #B3B2B3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    gap: 27px;
+    padding: 10px;
+}
+
+.imgpost{
+    min-width: 200px;
+    min-height: 220px;
+    max-height: 260px;
+    max-width: 260px;
+    border-radius: 5px;
+}
+
+.name{
+    font-size: 16px;
+    font-family: "Bitter", serif;
+    font-weight: bold;
+    text-align: center;
+    max-width: 240px;
+}
+
+.buttondetailed{
+    width: 127px;
+    height: 26px;
+    background-color: transparent;
+    border: 1 solid black;
+    border-radius: 15px;
+    font-size: 16px;
+    font-family: "Bitter", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: bold;
+    color: #333333;
+    cursor: pointer;
+}
+
+.modaldiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.namediv{
+    width: 332px;
+    height: 27px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0D0D0D;
+    border-radius: 20px;
+    padding: 30px;
+    gap: 10px;
+}
+
+.buttonLike{
+    width: 127px;
+    height: 26px;
+    background-color: transparent;
+    border: 2px solid #040982;
+    border-radius: 15px;
+    font-size: 16px;
+    font-family: "Bitter", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: bold;
+    color: #333333;
+    cursor: pointer;
+}
+
+.buttonDislike{
+    width: 127px;
+    height: 26px;
+    background-color: transparent;
+    border: 2px solid #5F0404;
+    border-radius: 15px;
+    font-size: 16px;
+    font-family: "Bitter", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: bold;
+    color: #333333;
+    cursor: pointer;
+}
+
+.divButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    max-width: 305px;
+    cursor: pointer;
+}

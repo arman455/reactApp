@@ -1,0 +1,37 @@
+
+.footer{
+    min-width: 1169px;
+    width: 1169px;
+    max-height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #0D0D0D;
+    border-radius: 20px;
+    padding: 10px;
+    gap: 60px;
+    margin-top: 20px;
+    color: #F2F2F2;
+}
+
+.fontFooter{
+    font-size: 40px;
+    font-family: "Kumar One", serif;
+    font-style: normal;
+    color: #F2F2F2;
+    text-decoration: none;
+}
+
+.linkFooter{
+    font-size: 20px;
+    font-family: "Kumar One", serif;
+    font-style: normal;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.imgFooter{
+    width: 25px;
+    height: 25px;
+    padding-right: 10px;
+}
