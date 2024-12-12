@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./Footer.css"
 
 export function Footer(){
@@ -9,10 +10,12 @@ export function Footer(){
             <a href="/" className="linkFooter"><img src="/static/tg.png" className="imgFooter" alt="" />Telegram</a>
             <a href="https://www.twitch.tv/stariy_bog/" className="linkFooter"><img src="/static/twitch.png" className="imgFooter" alt="" />Twitch</a>
 
-            <div className="postfun">
-                <a href="/" className="fontFooter">PostFun</a>
-                <a href="/"><img className="stariyIMG" src="/static/stariy 7.png" alt="" /></a>
-            </div>
+            <Link to={"/"}>
+                <div className="postfun">
+                    <a href="/" className="fontFooter">PostFun</a>
+                    <a href="/"><img className="stariyIMG" src="/static/stariy 7.png" alt="" /></a>
+                </div>
+            </Link>
 
         </div>
     )

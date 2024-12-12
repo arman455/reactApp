@@ -3,11 +3,11 @@ import { useEffect, useState } from "react"
 import "./PostList.css"
 
 const posts = [
-    {id: 0, category: "People", header: "Я попробовал арбуз, а Старий Бог мой хук на вкус", description: "zxc", image: "/static/5.jpg", author: "Новий пользиватель чата"},
-    {id: 1, category: "People", header: "Пищи нет вкуснее каши, Старий Бог синок ...", description: "где лазери??", image: "/static/2.jpg", author: "Новий пользиватель чата"},
-    {id: 2, category: "Stariy", header: "Че парни, неделю не играл, норм играю??", description: "ОТВЕЧАААЙТЕ МНЕ!!!!!", image: "/static/3.jpg", author: "Старий бог"},
-    {id: 3, category: "People", header: "Сегодня мер разрушил ферму, Старий Бог глотает ...", description: "zxc", image: "/static/4.jpg", author: "Новий пользиватель чата"},
-    {id: 4, category: "People", header: "Пока я ... на Юлю, Старий Бог ... бабулю", description: "Ну ти же ... , нет???", image: "/static/1.jpg", author: "Новий пользиватель чата"}
+    {id: 0, category: "People", title: "Я попробовал арбуз, а Старий Бог мой хук на вкус", description: "zxc", social_image: "/static/5.jpg", user: {name:"Новий пользиватель чата"}},
+    {id: 1, category: "People", title: "Пищи нет вкуснее каши, Старий Бог синок ...", description: "где лазери??", social_image: "/static/2.jpg", user: {name:"Новий пользиватель чата"}},
+    {id: 2, category: "Stariy", title: "Че парни, неделю не играл, норм играю??", description: "ОТВЕЧАААЙТЕ МНЕ!!!!!", social_image: "/static/3.jpg", user: {name:"Старий бог"}},
+    {id: 3, category: "People", title: "Сегодня мер разрушил ферму, Старий Бог глотает ...", description: "zxc", social_image: "/static/4.jpg", user: {name:"Новий пользиватель чата"}},
+    {id: 4, category: "People", title: "Пока я ... на Юлю, Старий Бог ... бабулю", description: "Ну ти же ... , нет???", social_image: "/static/1.jpg", user: {name:"Новий пользиватель чата"}}
 ]
 
 export function PostList(){
@@ -25,6 +25,15 @@ export function PostList(){
         }
     }, [selectedCategory])
 
+    useEffect(()=>{
+        async function getPosts() {
+            const response = await fetch('https://dev.to/api/articles')
+            const posts = await response.json()
+            setFilteredPosts(posts)
+        }
+        getPosts()
+    },[])
+
     return (
     <div className='mainpostlistdiv'>
 
@@ -41,7 +50,8 @@ export function PostList(){
         <div className='list'>
 
             {filteredPosts.map((post) => {
-                return <Post key = {post.id} header = {post.header} description={post.description} image={post.image} author={post.author}> </Post>
+                return <Post key = {post.id} id={post.id} name = {post.title} description={post.description} image={post.social_image} author={post.user.name}> </Post>
+                
                 }
             )}
         </div>

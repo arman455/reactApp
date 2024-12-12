@@ -1,15 +1,19 @@
-import { PostList } from '../PostList/PostList'
-import { Header } from '../Header/Header'
-import { Footer } from '../Footer/Footer'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Layout } from "../Layout/Layout"
+import { PostList } from "../PostList/PostList"
+import { PostPage } from "../PostPage/PostPage"
 import "./MainPage.css"
 export function MainPage(){
     return (
-        <div className='mainpage'>
-            <Header></Header>
-            <div className='maindiv'>
-                <PostList></PostList>
-            </div>
-            <Footer></Footer>
-        </div>
+        <BrowserRouter>
+            <Routes>
+
+                <Route path="/" element={<div className='mainpage'><Layout></Layout></div>}>
+                    <Route path="/posts" element={<PostList></PostList>}></Route>
+                    <Route path="/posts/:id" element={<PostPage></PostPage>}></Route>
+                </Route>
+
+            </Routes>
+        </BrowserRouter>
     )
 }

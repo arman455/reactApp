@@ -3,7 +3,8 @@ import "./Post.css"
 import Modal from "../ModalWindow/ModalWindow";
 
 interface PostProps {
-    header: string;
+    id: number;
+    name: string;
     description: string;
     image: string;
     author: string;
@@ -23,9 +24,6 @@ export function Post(props: PostProps){
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
-    const [buttonText1, setButtonText1] = useState("Like");
-    const [buttonText2, setButtonText2] = useState("Dislike");
-
 
     const handleLike = () => {
         if (!isLiked) {
@@ -44,8 +42,8 @@ export function Post(props: PostProps){
 
     return (
         <div className="postdiv">
-            <h1 className="name">{props.header}</h1>
-            <img width={300} height={300} src={props.image} className="imgpost" alt="imagePost" />
+            <h1 className="name">{props.name.slice(0,75)}...</h1>
+            <img width={350} height={170} src={props.image} className="imgpost" alt="imagePost" />
 
             <button onClick={openModal} className="buttondetailed">Detailed</button>
 
@@ -53,13 +51,13 @@ export function Post(props: PostProps){
                 <div className="modaldiv">
 
                     <div className="namediv">
-                    <h1 className="name">{props.author}: {props.header}</h1>
+                    <h1 className="name">{props.author}: {props.name}</h1>
                     </div>
 
-                    <img width={300} height={300} src={props.image} className="imgpost" alt="imagePost" />
+                    <img width={500} height={250} src={props.image} className="imgpost" alt="imagePost" />
 
                     <div className="namediv">
-                        <p className="name">{props.description}</p>
+                        <p className="description">{props.description}</p>
                     </div>
 
                     <div className="divButton">

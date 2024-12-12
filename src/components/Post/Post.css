@@ -14,10 +14,10 @@
 }
 
 .imgpost{
-    min-width: 200px;
-    min-height: 220px;
-    max-height: 260px;
-    max-width: 260px;
+    min-width: 250px;
+    min-height: 150px;
+    max-height: 250px;
+    max-width: 500px;
     border-radius: 5px;
 }
 
@@ -27,6 +27,16 @@
     font-weight: bold;
     text-align: center;
     max-width: 240px;
+    min-height: 57.6px;
+}
+
+.description{
+    font-size: 16px;
+    font-family: "Bitter", serif;
+    font-weight: bold;
+    text-align: center;
+    max-width: 240px;
+    min-height: auto;
 }
 
 .buttondetailed{
@@ -54,7 +64,8 @@
 
 .namediv{
     width: 332px;
-    height: 27px;
+    height: auto;
+    max-height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,6 +74,10 @@
     border-radius: 20px;
     padding: 30px;
     gap: 10px;
+}
+
+.namediv h1{
+    min-height: auto;
 }
 
 .buttonLike{

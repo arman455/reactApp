@@ -1,0 +1,16 @@
+
+.maindiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 1160px;
+    min-width: 1160px;
+    gap: 12px;
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: #F2F2F2;
+    min-height: 54.7vh;
+}
