@@ -1,0 +1,27 @@
+
+.postpage{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    gap: 30px;
+    padding: 10px;
+}
+
+.postpagemaintext{
+    font-size: 24px;
+    font-family: "Bitter", serif;
+}
+
+.postpageimg{
+    width: 700px;
+    height: 350px;
+    border-radius: 5px;
+}
+
+.postpagetext{
+    font-size: 16px;
+    font-family: "Bitter", serif;
+    font-weight: bold;
+}

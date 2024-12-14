@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Post.css"
 import Modal from "../ModalWindow/ModalWindow";
+import { Link } from "react-router-dom";
 
 interface PostProps {
     id: number;
@@ -42,8 +43,10 @@ export function Post(props: PostProps){
 
     return (
         <div className="postdiv">
-            <h1 className="name">{props.name.slice(0,75)}...</h1>
-            <img width={350} height={170} src={props.image} className="imgpost" alt="imagePost" />
+            <Link className="linkdiv" to={`/posts/${props.id}`}>
+                <h1 className="name">{props.name.slice(0,75)}...</h1>
+                <img width={350} height={170} src={props.image} className="imgpost" alt="imagePost" />
+            </Link>
 
             <button onClick={openModal} className="buttondetailed">Detailed</button>
 
@@ -53,25 +56,18 @@ export function Post(props: PostProps){
                     <div className="namediv">
                     <h1 className="name">{props.author}: {props.name}</h1>
                     </div>
-
                     <img width={500} height={250} src={props.image} className="imgpost" alt="imagePost" />
-
                     <div className="namediv">
                         <p className="description">{props.description}</p>
                     </div>
-
                     <div className="divButton">
-
                         <button className="buttonLike"onClick={handleLike} disabled={isLiked}>{isLiked ? `Like: ${amountLike}` : "Like"}</button>
-
                         <button className="buttonDislike" onClick={handleDislike} disabled={isDisLiked}>{isDisLiked ? `Dislike: ${amountDisLike}` : "Dislike"}</button>
-
                         <button className="buttondetailed" onClick={closeModal}>Back</button>
                     </div>
 
                 </div>
             </Modal>
-
         </div>
     )
 }

@@ -16,9 +16,6 @@ export function Layout(props: ILayout){
             <Main>
                 <Outlet></Outlet>
             </Main>
-            {/* <div className='maindiv'>
-                <PostList></PostList>
-            </div> */}
             <Footer></Footer>
         </div>
     )

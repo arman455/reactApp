@@ -9,8 +9,17 @@
     justify-content: center;
     flex-direction: column;
     border-radius: 5px;
-    gap: 27px;
+    gap: 15px;
     padding: 10px;
+}
+
+.linkdiv{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    gap: 15px;
+    color: #000000;
 }
 
 .imgpost{
