@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "./Post.css"
-import Modal from "../ModalWindow/ModalWindow";
+import "./PostCard.css"
+import ModalWindow from "../../ModalWindow/ModalWindow";
 import { Link } from "react-router-dom";
 
 interface PostProps {
@@ -50,7 +50,7 @@ export function Post(props: PostProps){
 
             <button onClick={openModal} className="buttondetailed">Detailed</button>
 
-            <Modal isOpen={isModalOpen} onClose={closeModal}>
+            <ModalWindow isOpen={isModalOpen} onClose={closeModal}>
                 <div className="modaldiv">
 
                     <div className="namediv">
@@ -67,7 +67,7 @@ export function Post(props: PostProps){
                     </div>
 
                 </div>
-            </Modal>
+            </ModalWindow>
         </div>
     )
 }
