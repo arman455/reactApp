@@ -2,14 +2,6 @@ import { Link, useParams } from "react-router-dom"
 import { usePostsById } from "../../hooks/usePostById"
 import "./PostPage.css"
 import { Audio } from 'react-loader-spinner';
-<Audio
-  height="80"
-  width="80"
-  color="green"
-  ariaLabel="three-dots-loading"
-  wrapperStyle={{}}
-  wrapperClass=""
-/>
 
 export function PostPage(){
 

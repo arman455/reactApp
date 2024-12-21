@@ -4,8 +4,14 @@ import { PostPage } from "../PostPage/PostPage"
 import "./MainPage.css"
 import { PostListPage } from "../PostListPage/PostListPage"
 import { Search } from "../Search/Search"
+import { useTitle } from "../../hooks/useTitle"
+
 export function MainPage(){
+
+    useTitle("Stariy_Bog")
+
     return (
+
         <BrowserRouter>
             <Routes>
 

@@ -2,6 +2,7 @@ import { Post } from "./PostCard/PostCard"
 import { usePosts } from "../../hooks/usePosts"
 import { useEffect, useState } from "react"
 import "./PostList.css"
+import { Audio } from 'react-loader-spinner';
 
 // const posts = [
 //     {id: 0, category: "People", tags: ["123"], title: "Я попробовал арбуз, а Старий Бог мой хук на вкус", description: "zxc", social_image: "/static/5.jpg", user: {name:"Новий пользиватель чата"}},
@@ -12,7 +13,7 @@ import "./PostList.css"
 // ]
 
 export function PostList(){
-    const {posts} = usePosts()
+    const {posts, isLoading} = usePosts()
 
     const [filteredPosts, setFilteredPosts] = useState(posts)
     const [selectedCategory, setSelectedCategory] = useState("All")
@@ -42,10 +43,14 @@ export function PostList(){
 
         <div className='list'>
 
-            {filteredPosts.map((post) => {
-                return <Post key = {post.id} id={post.id} name = {post.title} description={post.description} image={post.social_image} author={post.user.name}> </Post>
-                
-                }
+            { isLoading === true ? (<Audio height="80" width="80" color="grey" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClass=""/>) : (
+                <>
+                    {filteredPosts.map((post) => {
+                        return <Post key = {post.id} id={post.id} name = {post.title} description={post.description} image={post.social_image} author={post.user.name}> </Post>
+                        
+                        }
+                    )}
+                </>
             )}
         </div>
 

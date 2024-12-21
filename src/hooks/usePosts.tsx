@@ -13,14 +13,17 @@ export interface IPost{
 export function usePosts(){
     
     const [posts, setPosts] = useState<IPost[]>([]);
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         async function getPosts(){
             const response = await fetch("https://dev.to/api/articles")
             const posts = await response.json();
             setPosts(posts)
+            setIsLoading(false)
         }
         getPosts()
     },[]);
-    return { posts: posts}
+    
+    return { posts: posts, isLoading: isLoading}
 }
