@@ -43,7 +43,7 @@ export function Post(props: PostProps){
 
     return (
         <div className="postdiv">
-            <Link className="linkdiv" to={`/posts/${props.id}`}>
+            <Link className="linkdiv" to={`/post/${props.id}`}>
                 <h1 className="name">{props.name.slice(0,75)}...</h1>
                 <img width={350} height={170} src={props.image} className="imgpost" alt="imagePost" />
             </Link>

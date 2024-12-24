@@ -12,6 +12,7 @@
 .postpagemaintext{
     font-size: 24px;
     font-family: "Bitter", serif;
+    max-width: 850px;
 }
 
 .postpageimg{

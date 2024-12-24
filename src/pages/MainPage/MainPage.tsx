@@ -17,7 +17,7 @@ export function MainPage(){
 
                 <Route path="/" element={<div className='mainpage'><Layout></Layout></div>}>
                     <Route path="/posts" element={<PostListPage></PostListPage>}></Route>
-                    <Route path="/posts/:id" element={<PostPage></PostPage>}></Route>
+                    <Route path="/post/:id" element={<PostPage></PostPage>}></Route>
                     <Route path="/search" element={<Search></Search>}></Route>
                 </Route>
 

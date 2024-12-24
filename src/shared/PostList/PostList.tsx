@@ -13,7 +13,7 @@ import { Audio } from 'react-loader-spinner';
 // ]
 
 export function PostList(){
-    const {posts, isLoading} = usePosts()
+    const {posts, isLoading, error} = usePosts()
 
     const [filteredPosts, setFilteredPosts] = useState(posts)
     const [selectedCategory, setSelectedCategory] = useState("All")
@@ -43,15 +43,11 @@ export function PostList(){
 
         <div className='list'>
 
-            { isLoading === true ? (<Audio height="80" width="80" color="grey" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClass=""/>) : (
-                <>
-                    {filteredPosts.map((post) => {
-                        return <Post key = {post.id} id={post.id} name = {post.title} description={post.description} image={post.social_image} author={post.user.name}> </Post>
-                        
-                        }
-                    )}
-                </>
-            )}
+            { isLoading === true ? error === undefined ? filteredPosts.map((post) => {
+                    return <Post key = {post.id} id={post.id} name = {post.title} description={post.description} image={post.social_image} author={post.user.name}> </Post>
+                }) : (<h1>{error}</h1>) :
+                (<Audio height="80" width="80" color="grey" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClass=""/>)}
+            
         </div>
 
     </div>
