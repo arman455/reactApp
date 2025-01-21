@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./PostCard.css"
-import ModalWindow from "../../ModalWindow/ModalWindow";
+import {ModalWindow} from "../../ModalWindow/ModalWindow";
 import { Link } from "react-router-dom";
+import { likedPostContext } from "../../../pages/MainPage/MainPage";
 
 interface PostProps {
     id: number;
@@ -14,31 +15,36 @@ interface PostProps {
 
 export function Post(props: PostProps){
 
-    const [amountLike, setLikeAmount] = useState(0)
-    const [isLiked, setIsLiked] = useState(false);
-
     const [amountDisLike, setDisAmount] = useState(0)
     const [isDisLiked, setIsDisLiked] = useState(false);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const [{ likesPost, addLikesItem }] = useContext(likedPostContext)
+
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
-
-    const handleLike = () => {
-        if (!isLiked) {
-          setLikeAmount(amountLike + 1);
-          setIsLiked(true);
-        }
-      };
     
-      const handleDislike = () => {
+    const handleDislike = () => {
         if (!isDisLiked) {
           setDisAmount(amountDisLike + 1);
           setIsDisLiked(true);
         }
-      };
+    };
+
+    const currentLikeCount = likesPost.find((post) => post.id === props.id)?.likes || 0;
+
+    const handleLike = () => {
+      addLikesItem({
+        id: props.id,
+        title: props.name,
+        description: props.description,
+        social_image: props.image,
+        user: { name: props.name },
+        likes: currentLikeCount + 1,
+      });
+    };
 
 
     return (
@@ -61,7 +67,7 @@ export function Post(props: PostProps){
                         <p className="description">{props.description}</p>
                     </div>
                     <div className="divButton">
-                        <button className="buttonLike"onClick={handleLike} disabled={isLiked}>{isLiked ? `Like: ${amountLike}` : "Like"}</button>
+                        <button className="buttonLike" onClick={handleLike}>{currentLikeCount ? `Like: ${currentLikeCount}` : "Like"}</button>
                         <button className="buttonDislike" onClick={handleDislike} disabled={isDisLiked}>{isDisLiked ? `Dislike: ${amountDisLike}` : "Dislike"}</button>
                         <button className="buttondetailed" onClick={closeModal}>Back</button>
                     </div>

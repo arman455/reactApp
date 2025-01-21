@@ -7,7 +7,7 @@ interface ModalProps {
     children: ReactNode;
 }
 
-const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+export function ModalWindow({ isOpen, onClose, children }: ModalProps){
     if (!isOpen) return null;
 
     return (
@@ -21,5 +21,4 @@ const ModalWindow: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     );
 };
 
-export default ModalWindow
 

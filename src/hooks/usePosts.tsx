@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 export interface IPost{
     id: number;
     title: string;
-    category: string;
+    category?: string;
     tags?: string[];
     description: string;
     social_image: string;
     user: {name: string};
+    likes?: number;
 }
 
 export function usePosts(){
@@ -20,7 +21,6 @@ export function usePosts(){
     useEffect(() => {
         async function getPosts(){
             try{
-                setIsLoading(true)
                 const response = await fetch("https://dev.to/api/articles")
                 const posts = await response.json();
                 const satatus = response.status
