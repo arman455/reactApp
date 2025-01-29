@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import "./Header.css"
+import { Search } from "../Search/Search"
 
 export function Header(){
     return (
@@ -11,11 +12,10 @@ export function Header(){
                 </div>
             </Link>
 
+            <Search></Search>
+
             <Link id="othertext" to={"/posts"}>
                 <a href="" id="othertext" className="font">All Post</a>
-            </Link>
-            <Link id="othertext" to={"/search"}>
-                <a href="" id="othertext" className="font">Search</a>
             </Link>
         </div>
     )

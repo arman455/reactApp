@@ -42,3 +42,13 @@
 a{
     text-decoration: none;
 }
+
+.input {
+    height: 50px;
+    width: 450px;
+    border-radius: 35px;
+    background-color: #EBE7E7;
+    font-size: 16px;
+    border: none;
+    padding-left: 20px;
+}

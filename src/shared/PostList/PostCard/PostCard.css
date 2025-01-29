@@ -63,7 +63,7 @@
     cursor: pointer;
 }
 
-.modaldiv{
+.modal-div{
     display: flex;
     flex-direction: column;
     align-items: center;
