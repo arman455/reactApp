@@ -1,10 +1,10 @@
 import { useContext, useRef, useState } from "react"
 import { usePosts } from "../../hooks/usePosts"
 import { ModalWindow } from "../ModalWindow/ModalWindow"
+import { likedPostContext } from "../../context/likedContext"
+import { SearchPost } from "../SearchPost/SearchPost"
 
 import "./Search.css"
-import { SearchPost } from "../SearchPost/SearchPost"
-import { likedPostContext } from "../App"
 
 export function Search(){
 

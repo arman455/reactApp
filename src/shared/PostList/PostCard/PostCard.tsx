@@ -2,7 +2,8 @@ import { useContext, useRef, useState } from "react";
 import "./PostCard.css";
 import {ModalForPost} from "../../ModalForPost/ModalForPost";
 import { Link } from "react-router-dom";
-import { likedPostContext } from "../../App";
+import { likedPostContext } from "../../../context/likedContext";
+
 
 interface PostProps {
     id: number;
