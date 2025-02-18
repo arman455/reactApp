@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 
 export interface IPost{
     id: number;
-    title: string;
+    name: string;
     category?: string;
     tags?: string[];
+    author: string;
     description: string;
-    social_image: string;
-    user: {name: string};
+    social_image?: string;
+    userId: number;
     likes?: number;
 }
 
@@ -21,20 +22,15 @@ export function usePosts(){
     useEffect(() => {
         async function getPosts(){
             try{
-                const response = await fetch("https://dev.to/api/articles")
+                const response = await fetch("http://localhost:8000/api/post/all") //https://dev.to/api/articles
                 const posts = await response.json();
-                const satatus = response.status
-                setPosts(posts)
-                setStatus(satatus)
-            } catch(err){
-                if (err instanceof SyntaxError) {
-                    setError("Failed to parse server response.");
-                } else if (err instanceof Error) {
-                    setError(err.message);
+                if (posts.status === 'error') {
+                    setError(posts.message)
                 } else {
-                    const error = err as string
-                    setError(`${error}`)
+                    setPosts(posts.data)
                 }
+            } catch(err){
+                setError(`${err}`)
             } finally{
                 setIsLoading(true)
             }

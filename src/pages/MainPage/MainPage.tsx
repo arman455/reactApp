@@ -14,7 +14,7 @@ export function MainPage(){
                     return (
                         <div key={post.id} className="liked-post">
                             <img height={170} width={350} src={post.social_image} alt=""/>
-                            <h1>{post.title}</h1>
+                            <h1>{post.name}</h1>
                         </div>
                     )
                 })}

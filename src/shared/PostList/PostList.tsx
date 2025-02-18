@@ -3,7 +3,7 @@ import { usePosts } from "../../hooks/usePosts"
 import { useEffect, useState } from "react"
 import "./PostList.css"
 import { Audio } from 'react-loader-spinner';
-import { useCategories } from "../../hooks/useCatigories";
+// import { useCategories } from "../../hooks/useCatigories";
 
 // const posts = [
 //     {id: 0, category: "People", tags: ["123"], title: "Я попробовал арбуз, а Старий Бог мой хук на вкус", description: "zxc", social_image: "/static/5.jpg", user: {name:"Новий пользиватель чата"}},
@@ -18,7 +18,7 @@ export function PostList(){
 
     const [filteredPosts, setFilteredPosts] = useState(posts)
     const [selectedCategory, setSelectedCategory] = useState("All")
-    const { categories } = useCategories()
+    // const { categories } = useCategories()
 
     useEffect(()=>{
         if(selectedCategory==="All"){
@@ -45,7 +45,7 @@ export function PostList(){
         <div className='list'>
 
             { isLoading === true ? error === undefined ? filteredPosts.map((post) => {
-                    return <Post key = {post.id} id={post.id} name = {post.title} description={post.description} image={post.social_image} author={post.user.name}> </Post>
+                    return <Post key = {post.id} id={post.id} name = {post.name} description={post.description} image={post.social_image} userId={post.userId} author={post.author}> </Post>
                 }) : (<h1>{error}</h1>) :
                 (<Audio height="80" width="80" color="grey" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClass=""/>)}
             

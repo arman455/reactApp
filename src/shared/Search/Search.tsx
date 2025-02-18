@@ -27,11 +27,11 @@ export function Search(){
                     <div>
                         <ul>
                             {posts.map((post) => {
-                                return (search === '' || post.title.toLowerCase().includes(search.toLowerCase())) ? (
+                                return (search === '' || post.name.toLowerCase().includes(search.toLowerCase())) ? (
                                     <li key={post.id} onClick={()=>{setIsModalOpened(false)}}>
                                         <SearchPost
                                             id={post.id}
-                                            title={post.title}
+                                            name={post.name}
                                             social_img={post.social_image}
                                         ></SearchPost>
                                     </li>

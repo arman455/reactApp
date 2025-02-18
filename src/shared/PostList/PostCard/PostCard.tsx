@@ -9,8 +9,9 @@ interface PostProps {
     id: number;
     name: string;
     description: string;
-    image: string;
+    image?: string;
     author: string;
+    userId: number;
     children?: React.ReactNode;
 }
 
@@ -48,11 +49,12 @@ export function Post(props: PostProps) {
         } else {
             addLikesItem({
                 id: props.id,
-                title: props.name,
+                name: props.name,
                 description: props.description,
                 social_image: props.image,
-                user: { name: props.name },
+                userId: props.userId,
                 likes: updatedLikeCount,
+                author: props.author
             });
         }
         setIsClick(!isClick);

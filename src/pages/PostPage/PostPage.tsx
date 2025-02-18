@@ -15,7 +15,7 @@ export function PostPage(){
                     (<Audio height="80" width="80" color="grey" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClass=""/>) : (
                 ( !error ?
                 <>
-                    <h1 className="postpagemaintext">{post?.title}</h1>
+                    <h1 className="postpagemaintext">{post?.name}</h1>
                     <img className="postpageimg" src={post?.social_image} alt="" />
                     <p className="postpagetext">Tags: {post?.tags?.join(", ") || "No tags available"}</p>
                     <p className="postpagetext">Description: {post?.description}</p>
