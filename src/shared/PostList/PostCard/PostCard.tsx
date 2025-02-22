@@ -54,7 +54,8 @@ export function Post(props: PostProps) {
                 social_image: props.image,
                 userId: props.userId,
                 likes: updatedLikeCount,
-                author: props.author
+                author: props.author,
+                tags: props.tags,
             });
         }
         setIsClick(!isClick);

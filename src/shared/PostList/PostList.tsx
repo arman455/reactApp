@@ -3,6 +3,7 @@ import { usePosts } from "../../hooks/usePosts"
 import { useEffect, useState } from "react"
 import "./PostList.css"
 import { Audio } from 'react-loader-spinner';
+import { useCategories } from "../../hooks/useCatigories";
 // import { useCategories } from "../../hooks/useCatigories";
 
 // const posts = [
@@ -18,14 +19,18 @@ export function PostList(){
 
     const [filteredPosts, setFilteredPosts] = useState(posts)
     const [selectedCategory, setSelectedCategory] = useState("All")
-    // const { categories } = useCategories()
+    const { categories } = useCategories()
+
+    // console.log(categories)
 
     useEffect(()=>{
         if(selectedCategory==="All"){
             setFilteredPosts(posts)
         } else{
             setFilteredPosts(posts.filter((post)=>{
-                return post.category === selectedCategory
+                return post.tags.map((tag) => {
+                    return tag  === selectedCategory
+                })
             }))
         }
     }, [selectedCategory, posts])

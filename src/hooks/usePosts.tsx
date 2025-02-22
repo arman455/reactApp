@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 export interface IPost{
     id: number;
     name: string;
-    category?: string;
-    tags?: string[];
+    tags: string[];
     author: string;
     description: string;
     social_image?: string;
