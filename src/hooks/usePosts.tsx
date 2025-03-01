@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 export interface IPost{
     id: number;
     name: string;
-    tags: string[];
+    Tag: { id: number, name: string};
     author: string;
     description: string;
     social_image?: string;
@@ -16,7 +16,6 @@ export function usePosts(){
     const [posts, setPosts] = useState<IPost[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState<string>()
-    const [status, setStatus] = useState<number>()
 
     useEffect(() => {
         async function getPosts(){
@@ -37,5 +36,5 @@ export function usePosts(){
         getPosts()
     },[]);
     
-    return { posts: posts, isLoading: isLoading, error: error, status: status }
+    return { posts: posts, isLoading: isLoading, error: error }
 }

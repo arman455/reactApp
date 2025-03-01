@@ -1,21 +1,25 @@
 import { useEffect, useState } from 'react'
-import { usePosts } from './usePosts'
+
+interface ITag{
+    id: number;
+    name: string;
+}
 
 export function useCategories(){
 
-    const [categories, setCategories] = useState()
+    const [tags, setTags] = useState<ITag[]>([])
     const [error, setError] = useState<string>()
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     useEffect(() => {
-        async function getCategories(){
+        async function getTags(){
             try{
                 const response = await fetch("http://localhost:8000/api/tags/all") //https://dev.to/api/articles
                 const tags = await response.json();
                 if (tags.status === 'error') {
                     setError(tags.message)
                 } else {
-                    setCategories(tags.data)
+                    setTags(tags.data)
                 }
             } catch(err){
                 setError(`${err}`)
@@ -23,8 +27,8 @@ export function useCategories(){
                 setIsLoading(true)
             }
         }
-        getCategories()
+        getTags()
     }, [])
-    return { categories: categories, error: error, isLoading: isLoading}
+    return { tags: tags, error: error, isLoading: isLoading}
 
 }
