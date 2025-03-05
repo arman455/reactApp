@@ -15,13 +15,13 @@ interface PostProps {
     children?: React.ReactNode;
     Tag: { id: number, name: string};
 }
-
+//  логика overall компонента тяжелая, просто потому что тут решил лайки сделать
 export function Post(props: PostProps) {
-
+    // если делаем лайки/дизлайки, тогда выносим их для модели поста и интерфейсов и тд. Нет смысла делать на фронтенде, если на бэке этого нет
     const [amountDisLike, setDisAmount] = useState(0);
     const [isDisLiked, setIsDisLiked] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
-
+    // хук
     const { likesPost, addLikesItem, deleteLikesItem } = useContext(likedPostContext);
     const [isClick, setIsClick] = useState(false);
 

@@ -7,7 +7,7 @@ export function PostPage() {
     const params = useParams();
     const { post, isLoading, error } = usePostsById(Number(params.id));
     console.log("Post data:", post);
-
+    // тут сделал, а в postList?
     if (isLoading) {
         return (
             <div className="postpage">
@@ -30,6 +30,7 @@ export function PostPage() {
             <img className="postpageimg" src={post.social_image} alt="" />
             <p className="postpagetext">Tags: {post.Tag.name}</p>
             <p className="postpagetext">Description: {post.description}</p>
+            {/* button в link? так себе, лучше просто сделать link со стилями */}
             <Link to={"/posts"}>
                 <button className="buttondetailed">Back</button>
             </Link>

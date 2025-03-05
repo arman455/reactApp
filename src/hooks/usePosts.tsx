@@ -9,6 +9,7 @@ export interface IPost{
     social_image?: string;
     userId: number;
     likes?: number;
+    // dislikes тоже
 }
 
 export function usePosts(){

@@ -9,8 +9,10 @@ export function PostList() {
     const { posts, isLoading, error } = usePosts();
     const [filteredPosts, setFilteredPosts] = useState(posts);
     const [selectedCategory, setSelectedCategory] = useState("All");
+    // good, не все додумались))
     const { tags } = useCategories();
 
+    // Лог убираем
     console.log("tags:", tags);
 
     useEffect(() => {
@@ -24,7 +26,11 @@ export function PostList() {
             );
         }
     }, [selectedCategory, posts]);
-
+    // То есть, если нету тегов, то никаких постов не увижу? не логично
+    // Если и делаешь такие условные рендеринги, ТОГДА и для всех остальных случаев тоже
+    // if (!posts)
+    // if (isLoadin)
+    // if (error)...
     if (!tags) {
         return <div>Not tags!</div>;
     }

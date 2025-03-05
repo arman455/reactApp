@@ -4,6 +4,8 @@ import { likedPostContext } from "../../context/likedContext"
 import "./MainPage.css"
 
 export function MainPage(){
+    // useTitle тут
+    // используем хук, а не сам контекст
     const { likesPost } = useContext(likedPostContext)
 
     return (

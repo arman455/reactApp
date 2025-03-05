@@ -4,7 +4,7 @@ interface ITag{
     id: number;
     name: string;
 }
-
+// useTags уж тогда
 export function useCategories(){
 
     const [tags, setTags] = useState<ITag[]>([])
@@ -14,6 +14,7 @@ export function useCategories(){
     useEffect(() => {
         async function getTags(){
             try{
+                // loading true?
                 const response = await fetch("http://localhost:8000/api/tags/all") //https://dev.to/api/articles
                 const tags = await response.json();
                 if (tags.status === 'error') {

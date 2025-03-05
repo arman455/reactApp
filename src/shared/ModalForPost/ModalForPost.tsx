@@ -6,7 +6,7 @@ interface IModalProps {
     onClose: () => void;
     children: ReactNode;
 }
-
+// модалка только для поста? очень специфическая, и в принципе ничем не отличается от обычной модалки
 export function ModalForPost({ isOpen, onClose, children }: IModalProps){
     if (!isOpen) return null;
 

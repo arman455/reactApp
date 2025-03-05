@@ -5,6 +5,7 @@ import { Main } from "../Main/Main";
 import "./Layout.css";
 import { Outlet } from "react-router-dom";
 
+// props не используешь
 interface ILayout{
     children?: ReactNode
 }

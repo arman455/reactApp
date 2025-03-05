@@ -7,6 +7,7 @@ export function Header(){
         <div className="header">
             <Link to={"/"}>
                 <div className="postfun">
+                    {/* Link вместо a надо использовать, а не внутрь кидать */}
                     <a href="/"><img className="stariyIMG" src="/static/stariy 6.png" alt="" /></a>
                     <a href="/" className="font">PostFun</a>
                 </div>
@@ -15,6 +16,7 @@ export function Header(){
             <Search></Search>
 
             <Link id="othertext" to={"/posts"}>
+            {/* a в link? зачем? убираем */}
                 <a href="" id="othertext" className="font">All Post</a>
             </Link>
         </div>

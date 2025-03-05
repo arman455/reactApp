@@ -38,7 +38,7 @@
 #othertext{
     padding-top: 20px;
 }
-
+/* для всех а делаешь так, лучше в выносить в Layout если так надо */
 a{
     text-decoration: none;
 }

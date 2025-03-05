@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-
+// Лучше назват IRegistrationForm
 interface IForm{
     username: string;
     email: string;
@@ -26,6 +26,7 @@ export function RegPage(){
     }
 
     return (
+        // login-page?
         <div className="login-page">
             <h1 className="login-header">RegPage</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="login-form">
@@ -37,6 +38,7 @@ export function RegPage(){
                 <p>{formState.errors?.username?.message}</p>
 
                 <input type="email" placeholder="Entred email" {...register("email", {
+                    // Name?
                     required: { value: true, message: "Name is required" },
                 })}/>
                 <p>{formState.errors?.email?.message}</p>

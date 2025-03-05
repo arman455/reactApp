@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form"
 
 import './LoginPage.css'
-
+// лучше назвать ILoginForm
 interface IForm{
     email: string;
     password: string;

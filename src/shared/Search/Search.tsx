@@ -10,7 +10,9 @@ export function Search(){
 
     const [isModalOpen, setIsModalOpened] = useState<boolean>(false)
     const modalContainerRef = useRef<HTMLDivElement | null>(null)
+    // loading, error обрабатываем тоже
     const {posts} = usePosts()
+    // хук контекста
     const { setSearch, search } = useContext(likedPostContext)
 
     function inputOnFocus(){
@@ -20,6 +22,9 @@ export function Search(){
     return(
         <div ref={modalContainerRef}>
             <input className="input" type="text" placeholder="Search posts..." onChange={(event)=> {setSearch(event.target.value)}} onFocus={inputOnFocus} onClick={(event) => {event.stopPropagation()}}/>
+            {/* условие модалки можно упростить до */}
+            {/* isModalOpen && <ModalWindow>...content</ModalWindow> */}
+            {/* можешь почитать: логическое И && */}
             { isModalOpen === true 
                 ?
                 <ModalWindow className="search-modal" allowModalCloseOutside={true} onClose={()=>{setIsModalOpened(false)}}

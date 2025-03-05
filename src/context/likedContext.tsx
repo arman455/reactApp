@@ -9,8 +9,9 @@ interface ILikesPostProps{
     search: string;
     setSearch: (value: string)=> void;
 }
-
+// раздели на строки
 const valueInit: ILikesPostProps = {likesPost: [], addLikesItem: () => {}, search: '', setSearch: (value: string) => {}, deleteLikesItem: () => {}};
+// сам контекст нет смысла экспортровать, есть хук
 export const likedPostContext = createContext<ILikesPostProps>(valueInit)
 
 interface likedContextProps{
@@ -35,6 +36,7 @@ export function LikedContextProvider(props: likedContextProps){
 
         setLikesPost(isLiked)
     }
+    // а isLiked?
 
     return (
         <likedPostContext.Provider value={{likesPost, addLikesItem, search, setSearch, deleteLikesItem}}>

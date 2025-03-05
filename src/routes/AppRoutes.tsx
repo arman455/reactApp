@@ -11,6 +11,7 @@ export function AppRoutes(){
     return (
         <BrowserRouter>
             <Routes>
+                {/* не понял зачем тут div mainpage, перенеси его в Layout */}
                 <Route path="/" element={<div className='mainpage'><Layout></Layout></div>}>
                     <Route path="/" element={<MainPage></MainPage>}></Route>
                     <Route path="/login" element={<LoginPage></LoginPage>}></Route>
