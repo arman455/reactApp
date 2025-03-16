@@ -19,7 +19,7 @@ export function PostList() {
         } else {
             setFilteredPosts(
                 posts.filter((post) => 
-                    post.Tag.name === selectedCategory
+                    post.Tags.name === selectedCategory
                 )
             );
         }
@@ -64,7 +64,8 @@ export function PostList() {
                             image={post.social_image}
                             userId={post.userId}
                             author={post.author}
-                            Tag={post.Tag}
+                            Tags={post.Tags}
+                            Coment={post.Coment}
                         />
                     ))
                 )}

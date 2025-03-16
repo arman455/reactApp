@@ -1,46 +1,40 @@
 import React, { ReactNode, useEffect, useRef } from "react";
-import "./Modal.css"; 
+import "./Modal.css";
 import { createPortal } from "react-dom";
 
 interface ModalProps {
-    allowModalCloseOutside: boolean,
-    onClose: ()=> void,
-    container?: Element,
-    className: string,
-    children: ReactNode
+  allowModalCloseOutside: boolean;
+  onClose: () => void;
+  container?: HTMLElement | null;
+  className: string;
+  children: ReactNode;
 }
 
-export function ModalWindow(props: ModalProps){
+export function ModalWindow(props: ModalProps) {
+  const { children, allowModalCloseOutside, onClose, container = document.body, className } = props;
+  const modalRef = useRef<HTMLDivElement | null>(null);
 
-    let {children, allowModalCloseOutside, onClose, container=document.body, className} = props
-    const modalRef = useRef<HTMLDivElement | null>(null)
-
-    function handleClickOutside(event: MouseEvent){
-        if (modalRef.current !== event.target && !modalRef.current?.contains(event.target as Node)){
-            onClose()
-        }
+  const handleClickOutside = (event: MouseEvent) => {
+    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      onClose();
     }
+  };
 
-    useEffect(() => {
-        if (!allowModalCloseOutside){
-            return
-        }
-
-        document.addEventListener("click", handleClickOutside)
-        return () => {
-            document.removeEventListener("click", handleClickOutside)
-        }
-    }, [])
-
-    if(document.querySelector("." + className)){
-        onClose()
-        return null
+  useEffect(() => {
+    if (allowModalCloseOutside) {
+      document.addEventListener("click", handleClickOutside);
     }
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [allowModalCloseOutside, onClose]);
 
-    return createPortal(
-        <div ref={modalRef} className = {"modal " + className} >{children}</div>,
-        container
-    )
-};
+  const modalContainer = container || document.body;
 
-
+  return createPortal(
+    <div ref={modalRef} className={`modal ${className}`}>
+      {children}
+    </div>,
+    modalContainer
+  );
+}

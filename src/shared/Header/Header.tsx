@@ -17,6 +17,9 @@ export function Header(){
             <Link id="othertext" to={"/posts"}>
                 <a href="" id="othertext" className="font">All Post</a>
             </Link>
+            <Link id="othertext" to={"/profile"}>
+                <a href="" id="othertext" className="font">Profile</a>
+            </Link>
         </div>
     )
 }

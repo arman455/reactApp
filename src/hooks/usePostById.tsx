@@ -8,34 +8,27 @@ export function usePostsById(id: number){
     const [error, setError] = useState<string>()
 
     useEffect(() => {
-        async function getPost(){
-            try{
+        async function getPost() {
+            try {
                 setIsLoading(true)
                 const response = await fetch(`http://localhost:8000/api/post/${id}`)
-                const post = await response.json()
-                const status = response.status
-                if (status === 404){
-                    setError("Post not found")
-                    return
-                }
-                setPost(post)
-            } catch(err){
-                if (err instanceof SyntaxError) {
-                    setError("Failed to parse server response.");
-                } else if (err instanceof Error) {
-                    setError(err.message);
+                const result = await response.json()
+                if (result.status === 'success') {
+                    setPost(result.data)
                 } else {
-                    const error = err as string
-                    console.error(error)
-                    setError(`${error}`)
+                    setError(result.message)
                 }
-            } finally{
+            }
+            catch (error) {
+                const err = error instanceof Error ? error.message : undefined
+                setError(`${err}`)
+            }
+            finally {
                 setIsLoading(false)
             }
         }
         getPost()
-    },[id])
+    }, [id])
 
     return {post: post, isLoading: isLoading, error: error}
-
 }

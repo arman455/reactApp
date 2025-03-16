@@ -1,4 +1,5 @@
 import { LikedContextProvider } from '../context/likedContext';
+import { UserContextProvider } from '../context/userContext';
 import { useTitle } from '../hooks/useTitle';
 import { AppRoutes } from '../routes/AppRoutes';
 
@@ -8,9 +9,11 @@ export function App(){
 
     return (
         <div>
-            <LikedContextProvider>
-                <AppRoutes></AppRoutes>
-            </LikedContextProvider>
+            <UserContextProvider>
+                <LikedContextProvider>
+                    <AppRoutes></AppRoutes>
+                </LikedContextProvider>
+            </UserContextProvider>
         </div>
     )
 }

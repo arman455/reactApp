@@ -6,6 +6,7 @@ import { PostPage } from "../pages/PostPage/PostPage";
 import { Search } from "../shared/Search/Search";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import { RegPage } from "../pages/RegPage/RegPage";
+import { Profile } from "../shared/Profile/Profile";
 
 export function AppRoutes(){
     return (
@@ -18,6 +19,7 @@ export function AppRoutes(){
                     <Route path="/posts" element={<PostListPage></PostListPage>}></Route>
                     <Route path="/post/:id" element={<PostPage></PostPage>}></Route>
                     <Route path="/search" element={<Search></Search>}></Route>
+                    <Route path="/profile" element={<Profile></Profile>}></Route>
                 </Route>
             </Routes>
         </BrowserRouter>

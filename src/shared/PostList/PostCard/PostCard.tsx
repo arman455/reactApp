@@ -13,7 +13,8 @@ interface PostProps {
     author: string;
     userId: number;
     children?: React.ReactNode;
-    Tag: { id: number, name: string};
+    Tags: { id: number, name: string};
+    Coment: { id: number, body: string, title: string, image: string}[];
 }
 
 export function Post(props: PostProps) {
@@ -56,11 +57,11 @@ export function Post(props: PostProps) {
                 userId: props.userId,
                 likes: updatedLikeCount,
                 author: props.author,
-                Tag: props.Tag
+                Tags: props.Tags,
+                Coment: props.Coment || []
             });
         }
         setIsClick(!isClick);
-        // console.log(updatedLikeCount);
     }
 
 

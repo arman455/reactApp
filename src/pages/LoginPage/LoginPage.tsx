@@ -1,29 +1,21 @@
 import { useForm } from "react-hook-form"
 
 import './LoginPage.css'
+import { useUserContext } from "../../context/userContext";
 
-interface IForm{
+interface ILoginForm{
     email: string;
     password: string;
 }
 export function LoginPage(){
 
-    const { register, formState, handleSubmit } = useForm <IForm>({
+    const { register, formState, handleSubmit } = useForm <ILoginForm>({
         mode: "onSubmit",
     }) 
+    const { user, login } = useUserContext()
 
-    function onSubmit(data: IForm){
-        // fetch('', {
-        //     method: 'POST',
-        //     body: JSON.stringify({
-        //         email: data.email,
-        //         password: data.password
-        //     }),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // })
-        console.log(data)
+    function onSubmit(data: ILoginForm){
+        login(data.email, data.password)
     }
 
     return (
